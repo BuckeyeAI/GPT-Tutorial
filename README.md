@@ -20,4 +20,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 4. Activate the venv by `source .gpt/bin/activate`.
 
-5. 
+5. Fork or download the `nanoGPT` [repo](https://github.com/karpathy/nanoGPT) from Andrej Karpathy.
+
+6. Follow the install instructions on `nanoGPT`'s README.md, e.g., install the dependencies. (Note: replace `pip` with `pip3` if you intend to use Python3 instead of Python2 for your code). Use `pip3` preferrably.
+
+## Trying out GPT
+
+1. If you just want to try out a simplest character-level document completion GPT, follow the `quick start` section on `nanoGPT` [repo's](https://github.com/karpathy/nanoGPT) README page.
