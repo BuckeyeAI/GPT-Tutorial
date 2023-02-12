@@ -36,9 +36,12 @@ pip3 install torch torchvision torchaudio
 
 3. (If using macOS) Edit the file `train.py` at line 72: `device = 'cpu'`, and `compile = False` at line 74. Reason: Andrej mentioned ' on macbook, do not torch compile the model'.
 
-4. Run the training code with `python3 train.py config/train_shakespeare_char.py`. What it does: trains the GPT model on the Shakespear dataset.
+4. Change the training iteration to a proper number that your local cpu / gpu can handle. For a 2022 macbook air, set it to 400 (line 59 in `train.py`) to get a loss function value of ~1.8.
+
+5. Run the training code with `python3 train.py config/train_shakespeare_char.py`. Force stop the training if it takes too long. What it does: trains the GPT model on the Shakespear dataset, and save training checkpoint.
 
 > **Open Question:** How does the command line parameter `config/train_shakespeare_char.py` get read into the main `train.py` file?
 
-> **Open Question:** The default setting on training iterations is 600,000. On a 2022 MacBook Air M2 with 8GB ram, this is likely taking 100,000 minutes, or 70 days. An A100 GPU will only take 3 minutes. What are the other alternatives? OSC (Ohio Super Computing) or AWS?
+> **Open Question:** The default setting on training iterations is 600,000. On a 2022 MacBook Air M2 with 8GB ram, this is likely taking 100,000 minutes, or 70 days. An A100 GPU will only take 3 minutes according to Andrej. What are the other alternatives? OSC (Ohio Super Computing) or AWS?
 
+6. Run the inference code with `python3 sample.py --out_dir=out-shakespeare-char`. What it does: by default, this starts the prompt with empty string `"\n"`. Then the pre-trained model will start from the prompt and generate texts. Alternatively, change line 14 of sample.py to specify a certain text file as the initial prompt.
